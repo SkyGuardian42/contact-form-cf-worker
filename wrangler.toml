@@ -1,0 +1,14 @@
+name = "contact-form"
+type = "javascript"
+route = ''
+zone_id = ''
+usage_model = ''
+compatibility_flags = []
+workers_dev = true
+compatibility_date = "2022-05-14"
+
+account_id = "fe0bb6cdd07ac12356c63964b0307cdd"
+
+kv_namespaces = [
+  { binding = "CONTACT_FORM", preview_id = "6f646952c1004b6394955ab3da88327a", id = "0b2d1c170d3f444188263feef2607724" }
+]
