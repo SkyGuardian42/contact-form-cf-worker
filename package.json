@@ -2,14 +2,16 @@
   "name": "contact-form-cf-worker",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "esbuild --bundle index.ts --outdir=dist --sourcemap --minify"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@cloudflare/workers-types": "^3.10.0"
+    "@cloudflare/workers-types": "^3.10.0",
+    "esbuild": "^0.14.39",
+    "typescript": "^4.6.4"
   }
 }

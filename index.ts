@@ -15,6 +15,7 @@ async function handleRequest(request: Request): Promise<Response> {
     name?: string;
     email?: string;
     message?: string;
+    checkText?: string;
   } = {};
   try {
     const formData = await request.formData();
@@ -26,14 +27,12 @@ async function handleRequest(request: Request): Promise<Response> {
     return new Response(e.message, { status: 400 });
   }
 
-  if (
-    !contactReq ||
-    !contactReq.name ||
-    !contactReq.email ||
-    !contactReq.message
-  ) {
-    return new Response("missing parameters", { status: 400 });
-  }
+  if(!contactReq) return new Response("missing req body", { status: 400 });
+  if(!contactReq.name) return new Response("missing name", { status: 400 });
+  if(!contactReq.email) return new Response("missing email", { status: 400 });
+  if(!contactReq.message) return new Response("missing message", { status: 400 });
+  if(!contactReq.checkText) return new Response("missing checkText", { status: 400 });
+  if(!/^[a-z]{5}$/.test(contactReq.checkText)) return new Response("check text in wrong format", { status: 400 });
 
   await CONTACT_FORM.put(
     new Date().toLocaleString("de"),
